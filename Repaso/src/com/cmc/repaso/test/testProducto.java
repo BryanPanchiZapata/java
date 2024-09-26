@@ -13,7 +13,7 @@ public class testProducto {
 		prod.setPrecio(-20);
 
 		// imprimir en consola el nombre
-		System.out.println("Nombre: " + prod.nombre);
+		System.out.println("Nombre: " + prod.getNombre());
 
 	}
 

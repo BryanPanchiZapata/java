@@ -1,8 +1,22 @@
 package com.cmc.repaso.entidades;
 
 public class Producto {
-	public String nombre;
-	public double precio;
+	private String nombre;
+	private double precio;
+
+	// Getters and setters
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public double getPrecio() {
+		return precio;
+	}
 
 	// constructor
 	public Producto(String nombre, double precio) {

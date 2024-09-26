@@ -9,10 +9,11 @@ public class testEstudiante {
 
 		// Modificar nota llamando al metodo calificar
 		per.calificar(10);
+
 		// Mostrar Valores de nombre
-		System.out.println("Nombre: " + per.nombre);
+		System.out.println("Nombre: " + per.getNombre());
 		// mostrar nota
-		System.out.println("Nota: " + per.nota);
+		System.out.println("Nota: " + per.getNota());
 
 	}
 
