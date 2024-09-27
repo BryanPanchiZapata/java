@@ -20,6 +20,7 @@ public class Pokemon {
 		this.nombre = nombre;
 	}
 
+	// Getters and Setters
 	public String getNombre() {
 		return nombre;
 	}
