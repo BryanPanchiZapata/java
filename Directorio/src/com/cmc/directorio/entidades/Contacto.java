@@ -40,6 +40,14 @@ public class Contacto {
 		this.peso = peso;
 	}
 
+	public boolean isActivo() {
+		return activo;
+	}
+
+	public void setActivo(boolean activo) {
+		this.activo = activo;
+	}
+
 	// constructor
 	public Contacto(String nombre, String apellido, Telefono telefono, double peso) {
 		super();
