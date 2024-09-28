@@ -139,7 +139,7 @@ public class MaquinaDulces {
 	// método incrementarProductos
 	public void incrementarProductos(String codigoProducto, int cantidadItems) {
 		Celda celdaEncontrada = buscarCeldaProducto(codigoProducto);
-		celdaEncontrada.setStock(cantidadItems);
+		celdaEncontrada.setStock(celdaEncontrada.getStock()+cantidadItems);
 	}
 
 	// Método vender
