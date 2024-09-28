@@ -13,7 +13,6 @@ public class Celda {
 
 	// constructor
 	public Celda(String codigo) {
-		super();
 		this.codigo = codigo;
 	}
 
