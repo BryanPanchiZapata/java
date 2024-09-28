@@ -42,11 +42,17 @@ public class Producto {
 	}
 
 	// constructor
-	public Producto(String nombre, double precio, String codigo) {
+	public Producto(String nombre, String codigo, double precio) {
 		super();
 		this.nombre = nombre;
 		this.precio = precio;
 		this.codigo = codigo;
 	}
 
+	public Producto(String nombre, double precio, String codigo) {
+		super();
+		this.nombre = nombre;
+		this.precio = precio;
+		this.codigo = codigo;
+	}
 }
