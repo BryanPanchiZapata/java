@@ -53,39 +53,46 @@ public class MaquinaDulces {
 
 		if (celda1.getProducto() == null) {
 			System.out.println("*********CELDA " + celda1.getCodigo());
+			System.out.println("Saldo: " + saldo);
 			System.out.println("Stock: " + celda1.getStock());
 			System.out.println("La celda no tiene Productos!!!");
 		} else {
-			System.out.println("*********CELDA " + celda1.getCodigo() + "\n" + "Stock: " + celda1.getStock() + "\n"
-					+ "Nombre Producto: " + celda1.getProducto().getNombre() + "\n" + "Precio Producto: "
-					+ celda1.getProducto().getPrecio() + "\n" + "Código: " + celda1.getProducto().getCodigo());
+			System.out.println("*********CELDA " + celda1.getCodigo() + "\n" + "Saldo: " + saldo + "\n" + "Stock: "
+					+ celda1.getStock() + "\n" + "Nombre Producto: " + celda1.getProducto().getNombre() + "\n"
+					+ "Precio Producto: " + celda1.getProducto().getPrecio() + "\n" + "Código: "
+					+ celda1.getProducto().getCodigo());
 		}
 		if (celda2.getProducto() == null) {
 			System.out.println("*********CELDA " + celda2.getCodigo());
+			System.out.println("Saldo: " + saldo);
 			System.out.println("Stock: " + celda2.getStock());
 			System.out.println("La celda no tiene Productos!!!");
 		} else {
-			System.out.println("*********CELDA " + celda2.getCodigo() + "\n" + "Stock: " + celda2.getStock() + "\n"
-					+ "Nombre Producto: " + celda2.getProducto().getNombre() + "\n" + "Precio Producto: "
-					+ celda2.getProducto().getPrecio() + "\n" + "Código: " + celda2.getProducto().getCodigo());
+			System.out.println("*********CELDA " + celda2.getCodigo() + "\n" + "Saldo: " + saldo + "\n" + "Stock: "
+					+ celda2.getStock() + "\n" + "Nombre Producto: " + celda2.getProducto().getNombre() + "\n"
+					+ "Precio Producto: " + celda2.getProducto().getPrecio() + "\n" + "Código: "
+					+ celda2.getProducto().getCodigo());
 		}
 		if (celda3.getProducto() == null) {
 			System.out.println("*********CELDA " + celda3.getCodigo());
+			System.out.println("Saldo: " + saldo);
 			System.out.println("Stock: " + celda3.getStock());
 			System.out.println("La celda no tiene Productos!!!");
 		} else {
-			System.out.println("*********CELDA " + celda3.getCodigo() + "\n" + "Stock: " + celda3.getStock() + "\n"
-					+ "Nombre Producto: " + celda3.getProducto().getNombre() + "\n" + "Precio Producto: "
-					+ celda3.getProducto().getPrecio() + "\n" + "Código: " + celda3.getProducto().getCodigo());
+			System.out.println("*********CELDA " + celda3.getCodigo() + "\n" + "Saldo: " + saldo + "\n" + "Stock: "
+					+ celda3.getStock() + "\n" + "Nombre Producto: " + celda3.getProducto().getNombre() + "\n"
+					+ "Precio Producto: " + celda3.getProducto().getPrecio() + "\n" + "Código: "
+					+ celda3.getProducto().getCodigo());
 		}
 		if (celda4.getProducto() == null) {
 			System.out.println("*********CELDA " + celda4.getCodigo());
 			System.out.println("Stock: " + celda4.getStock());
 			System.out.println("La celda no tiene Productos!!!");
 		} else {
-			System.out.println("*********CELDA " + celda4.getCodigo() + "\n" + "Stock: " + celda4.getStock() + "\n"
-					+ "Nombre Producto: " + celda4.getProducto().getNombre() + "\n" + "Precio Producto: "
-					+ celda4.getProducto().getPrecio() + "\n" + "Código: " + celda4.getProducto().getCodigo());
+			System.out.println("*********CELDA " + celda4.getCodigo() + "\n" + "Saldo: " + saldo + "\n" + "\n"
+					+ "Stock: " + celda4.getStock() + "Nombre Producto: " + celda4.getProducto().getNombre() + "\n"
+					+ "Precio Producto: " + celda4.getProducto().getPrecio() + "\n" + "Código: "
+					+ celda4.getProducto().getCodigo());
 		}
 		System.out.println("Saldo: " + saldo);
 	}
@@ -135,11 +142,10 @@ public class MaquinaDulces {
 		}
 	}
 
-
 	// método incrementarProductos
 	public void incrementarProductos(String codigoProducto, int cantidadItems) {
 		Celda celdaEncontrada = buscarCeldaProducto(codigoProducto);
-		celdaEncontrada.setStock(celdaEncontrada.getStock()+cantidadItems);
+		celdaEncontrada.setStock(celdaEncontrada.getStock() + cantidadItems);
 	}
 
 	// Método vender
