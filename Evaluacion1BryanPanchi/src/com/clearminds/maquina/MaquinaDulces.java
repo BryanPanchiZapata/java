@@ -38,8 +38,8 @@ public class MaquinaDulces {
 		return celdaEncontrada;
 	}
 
-	public void cargarProducto(Producto producto, String celda, int items) {
-		Celda celdaRecuperada = buscarCelda(celda);
+	public void cargarProducto(Producto producto, String codigo, int items) {
+		Celda celdaRecuperada = buscarCelda(codigo);
 		celdaRecuperada.ingresarProducto(producto, items);
 	}
 
@@ -61,17 +61,43 @@ public class MaquinaDulces {
 
 	}
 
-	public Celda buscarProductoEnCelda(String codigo) {
-		Celda celdaEncontrada = null;
-		Celda elementoEncontrado = null;
+	public Producto buscarProductoEnCelda(String codigo) {
+		Producto elementoEncontrado = null;
 		for (int i = 0; i < celdas.size(); i++) {
-			elementoEncontrado = celdas.get(i);
-			if (codigo.equals(elementoEncontrado.getCodigo())) {
-				celdaEncontrada = elementoEncontrado;
-			} else {
-				return null;
+			if (codigo.equals(celdas.get(i).getCodigo())) {
+				elementoEncontrado = celdas.get(i).getProducto();
 			}
 		}
-		return celdaEncontrada;
+		return elementoEncontrado;
 	}
+
+	public double consultarPrecio(String codigo) {
+		double elementoEncontrado = 0;
+		for (int i = 0; i < celdas.size(); i++) {
+			if (codigo.equals(celdas.get(i).getCodigo())) {
+				elementoEncontrado = celdas.get(i).getProducto().getPrecio();
+			}
+		}
+		return elementoEncontrado;
+	}
+
+	public Celda buscarCeldaProducto(String codigo) {
+		Celda elementoEncontrado = null;
+		for (int i = 0; i < celdas.size(); i++) {
+			if (celdas.get(i).getProducto() != null) {
+				if (codigo.equals(celdas.get(i).getProducto().getCodigo())) {
+					elementoEncontrado = celdas.get(i);
+				}
+
+			}
+		}
+		return elementoEncontrado;
+	}
+
+	public void incrementarProductos(String codigo, int items) {
+		Celda celdaEncontrada = buscarCeldaProducto(codigo);
+		celdaEncontrada.setStock(celdaEncontrada.getStock() + items);
+
+	}
+
 }
