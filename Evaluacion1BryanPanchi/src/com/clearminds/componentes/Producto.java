@@ -16,6 +16,10 @@ public class Producto {
 		this.codigo = codigo;
 		this.precio = precio;
 	}
+	public Producto(String nombre, double precio) {
+		this.nombre = nombre;
+		this.precio = precio;
+	}
 
 	// método incrementarPrecio
 	public void incrementarPrecio(int incremento) {

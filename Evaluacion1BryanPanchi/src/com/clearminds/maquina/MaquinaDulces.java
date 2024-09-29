@@ -105,7 +105,42 @@ public class MaquinaDulces {
 		double valorSaldo = celdaEncontrada.getProducto().getPrecio();
 		saldo = getSaldo() + valorSaldo;
 		System.out.println(saldo);
-		mostrarProductos();
+	}
+
+	public double venderConCambio(String codigo, double valorCliente) {
+		Celda celdaEncontrada = buscarCelda(codigo);
+		celdaEncontrada.setStock(celdaEncontrada.getStock() - 1);
+		double valorSaldo = celdaEncontrada.getProducto().getPrecio();
+		saldo = getSaldo() + valorSaldo;
+		System.out.println("Saldo: " + saldo);
+		return valorCliente - valorSaldo;
+	}
+
+	public ArrayList<Producto> buscarMenores(double limite) {
+		ArrayList<Producto> producto = new ArrayList<>();
+		Producto elementoEncontrado = null;
+		for (int i = 0; i < celdas.size(); i++) {
+			if (celdas.get(i).getProducto().getPrecio() < limite) {
+				producto.add(elementoEncontrado);
+			}
+		}
+		return producto;
+	}
+
+	public void mostrarProductosPrecio() {
+
+		for (int i = 0; i < celdas.size(); i++) {
+			Celda elementoCelda = celdas.get(i);
+
+			if (elementoCelda.getProducto() == null) {
+				System.out.println("Celda:" + elementoCelda.getCodigo());
+			} else {
+				System.out.println("Nombre: "
+						+ elementoCelda.getProducto().getNombre() + " Precio: " + elementoCelda.getProducto().getPrecio());
+			}
+
+		}
+
 	}
 
 	public ArrayList<Celda> getCeldas() {
