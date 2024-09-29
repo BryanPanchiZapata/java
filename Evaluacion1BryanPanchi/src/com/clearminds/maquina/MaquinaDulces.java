@@ -97,7 +97,31 @@ public class MaquinaDulces {
 	public void incrementarProductos(String codigo, int items) {
 		Celda celdaEncontrada = buscarCeldaProducto(codigo);
 		celdaEncontrada.setStock(celdaEncontrada.getStock() + items);
+	}
 
+	public void vender(String codigo) {
+		Celda celdaEncontrada = buscarCelda(codigo);
+		celdaEncontrada.setStock(celdaEncontrada.getStock() - 1);
+		double valorSaldo = celdaEncontrada.getProducto().getPrecio();
+		saldo = getSaldo() + valorSaldo;
+		System.out.println(saldo);
+		mostrarProductos();
+	}
+
+	public ArrayList<Celda> getCeldas() {
+		return celdas;
+	}
+
+	public void setCeldas(ArrayList<Celda> celdas) {
+		this.celdas = celdas;
+	}
+
+	public double getSaldo() {
+		return saldo;
+	}
+
+	public void setSaldo(double saldo) {
+		this.saldo = saldo;
 	}
 
 }
