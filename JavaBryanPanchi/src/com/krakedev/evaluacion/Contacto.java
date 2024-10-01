@@ -34,6 +34,19 @@ public class Contacto {
 
 	}
 
+	// Método recuperarIncorrectos
+	public ArrayList<Telefono> recuperarIncorrectos() {
+		ArrayList<Telefono> telefonosIncorrectos = new ArrayList<>();
+		Telefono telfI = null;
+		for (int i = 0; i < telefonos.size(); i++) {
+			telfI = telefonos.get(i);
+			if (telfI.getEstado().equals("E")) {
+				telefonosIncorrectos.add(telfI);
+			}
+		}
+		return telefonosIncorrectos;
+	}
+
 	// Método imprimir testContacto1
 	/*
 	 * public void imprimir() {
