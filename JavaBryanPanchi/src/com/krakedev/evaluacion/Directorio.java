@@ -9,6 +9,14 @@ public class Directorio {
 
 	// Método agregarContacto
 	public boolean agregarContacto(Contacto contacto) {
+		Contacto elementoContacto;
+		for (int i = 0; i < contactos.size(); i++) {
+			elementoContacto = contactos.get(i);
+			if (elementoContacto.getCedula().equals(contacto.getCedula())) {
+				return false;
+			}
+
+		}
 		contactos.add(contacto);
 		return true;
 
@@ -26,4 +34,21 @@ public class Directorio {
 
 		return null;
 	}
+
+	public ArrayList<Contacto> getContactos() {
+		return contactos;
+	}
+
+	public void setContactos(ArrayList<Contacto> contactos) {
+		this.contactos = contactos;
+	}
+
+	public Date getFechaModificacion() {
+		return fechaModificacion;
+	}
+
+	public void setFechaModificacion(Date fechaModificacion) {
+		this.fechaModificacion = fechaModificacion;
+	}
+
 }
