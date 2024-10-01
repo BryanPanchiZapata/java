@@ -1,5 +1,6 @@
 package com.krakedev.evaluacion;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -20,6 +21,14 @@ public class Directorio {
 		contactos.add(contacto);
 		return true;
 
+	}
+
+	// método consultarUltimaModificacion
+	public String consultarUltimaModificacion() {
+		Date fechaModificacion = new Date();
+		SimpleDateFormat formato = new SimpleDateFormat("yyyy/MM/dd/ HH:mm:ss");
+		String fechaFormateada = formato.format(fechaModificacion);
+		return fechaFormateada;
 	}
 
 	// método buscarPorCedula
