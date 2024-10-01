@@ -6,7 +6,7 @@ import java.util.Date;
 
 public class Directorio {
 	private ArrayList<Contacto> contactos = new ArrayList<>();
-	private Date fechaModificacion;
+	private Date fechaModificacion = new Date();
 
 	// Método agregarContacto
 	public boolean agregarContacto(Contacto contacto) {
@@ -23,14 +23,6 @@ public class Directorio {
 
 	}
 
-	// método consultarUltimaModificacion
-	public String consultarUltimaModificacion() {
-		Date fechaModificacion = new Date();
-		SimpleDateFormat formato = new SimpleDateFormat("yyyy/MM/dd/ HH:mm:ss");
-		String fechaFormateada = formato.format(fechaModificacion);
-		return fechaFormateada;
-	}
-
 	// método buscarPorCedula
 	public Contacto buscarPorCedula(String cedula) {
 		Contacto elementoContacto;
@@ -42,6 +34,26 @@ public class Directorio {
 		}
 
 		return null;
+	}
+
+	// método consultarUltimaModificacion
+	public String consultarUltimaModificacion() {
+		SimpleDateFormat formato = new SimpleDateFormat("yyyy/MM/dd/ HH:mm:ss");
+		String fechaFormateada = formato.format(fechaModificacion);
+		return fechaFormateada;
+	}
+
+	// Método contarPedidos
+	public int contarPerdidos() {
+		int contador = 0;
+		for (int i = 0; i < contactos.size(); i++) {
+			Contacto numeroContactos = contactos.get(i);
+			if (numeroContactos.getDireccion() == null) {
+				contador++;
+			}
+
+		}
+		return contador;
 	}
 
 	public ArrayList<Contacto> getContactos() {
