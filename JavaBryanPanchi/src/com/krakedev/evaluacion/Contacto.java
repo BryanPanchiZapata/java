@@ -13,22 +13,33 @@ public class Contacto {
 		this.apellido = apellido;
 	}
 
-	// Método imprimir
-	public void imprimir() {
-		this.direccion.setCallePrincipal("Av. Siempre viva");
-		this.direccion.setCalleSecundaria("Calle 4");
-		System.out.println("Cédula: " + cedula + "\nNombre: " + nombre + "\nApellido: " + apellido + "\nDireccion: "
-				+ "\n" + " Calle Principal: " + direccion.getCallePrincipal() + "\n" + " Calle Secundaria: "
-				+ direccion.getCalleSecundaria());
+	// Método imprimir testContacto1
+	/*
+	 * public void imprimir() {
+	 * this.direccion.setCallePrincipal("Av. Siempre viva");
+	 * this.direccion.setCalleSecundaria("Calle 4"); System.out.println("Cédula: " +
+	 * cedula + "\nNombre: " + nombre + "\nApellido: " + apellido + "\nDireccion: "
+	 * + "\n" + " Calle Principal: " + direccion.getCallePrincipal() + "\n" +
+	 * " Calle Secundaria: " + direccion.getCalleSecundaria());
+	 * 
+	 * this.setNombre("Ana"); this.setApellido("Gómez");
+	 * this.setCedula("09876543210");
+	 * this.direccion.setCallePrincipal("Cdl del ejercito");
+	 * this.direccion.setCalleSecundaria("Pasaje 2B");
+	 * System.out.println("\nInformación del Contacto (Actualizada)" + "\n" +
+	 * "Cédula: " + cedula + "\nNombre: " + nombre + "\nApellido: " + apellido +
+	 * "\nDireccion: " + "\n" + " Calle Principal: " + direccion.getCallePrincipal()
+	 * + "\n" + " Calle Secundaria: " + direccion.getCalleSecundaria()); }
+	 */
 
-		this.setNombre("Ana");
-		this.setApellido("Gómez");
-		this.setCedula("09876543210");
-		this.direccion.setCallePrincipal("Cdl del ejercito");
-		this.direccion.setCalleSecundaria("Pasaje 2B");
-		System.out.println("\nInformación del Contacto (Actualizada)" + "\n" + "Cédula: " + cedula + "\nNombre: "
-				+ nombre + "\nApellido: " + apellido + "\nDireccion: " + "\n" + " Calle Principal: "
-				+ direccion.getCallePrincipal() + "\n" + " Calle Secundaria: " + direccion.getCalleSecundaria());
+	// Método imprimir testContacto2
+	public void imprimir() {
+		if (direccion != null) {
+			System.out.println("***" + nombre + " " + apellido + "***" + "\nDireccion: " + direccion.getCallePrincipal()
+					+ " " + direccion.getCalleSecundaria());
+		} else {
+			System.out.println("***" + nombre + " " + apellido + "***" + "\n No tiene asociada una direccion");
+		}
 	}
 
 	public String getCedula() {
