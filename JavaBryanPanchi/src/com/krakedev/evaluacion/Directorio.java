@@ -6,6 +6,8 @@ import java.util.Date;
 
 public class Directorio {
 	private ArrayList<Contacto> contactos = new ArrayList<>();
+	private ArrayList<Contacto> incorrectos = new ArrayList<>();
+	private ArrayList<Contacto> correctos = new ArrayList<>();
 	private Date fechaModificacion = new Date();
 
 	// Método agregarContacto
@@ -38,8 +40,8 @@ public class Directorio {
 
 	// método consultarUltimaModificacion
 	public String consultarUltimaModificacion() {
-		SimpleDateFormat formato = new SimpleDateFormat("yyyy/MM/dd/ HH:mm:ss");
-		String fechaFormateada = formato.format(fechaModificacion);
+		SimpleDateFormat fechaFormato = new SimpleDateFormat("yyyy/MM/dd/ HH:mm:ss");
+		String fechaFormateada = fechaFormato.format(fechaModificacion);
 		return fechaFormateada;
 	}
 
@@ -54,6 +56,52 @@ public class Directorio {
 
 		}
 		return contador;
+	}
+
+	// Método contarFijos
+	public int contarFijos() {
+		int contarTelefono = 0;
+		for (int i = 0; i < contactos.size(); i++) {
+			Contacto contarFijo = contactos.get(i);
+			for (int a = 0; a < contarFijo.getTelefono().size(); a++) {
+				Telefono telefono = contarFijo.getTelefono().get(a);
+				if (telefono.getTipo().equalsIgnoreCase("convencional") && telefono.getEstado().equals("C")) {
+					contarTelefono++;
+				}
+
+			}
+
+		}
+		return contarTelefono;
+	}
+
+	// Método depurar
+	public void depurar() {
+		for (int i = 0; i < contactos.size(); i++) {
+			Contacto validar = contactos.get(i);
+			if (validar.getDireccion() != null) {
+				correctos.add(validar);
+			} else {
+				incorrectos.add(validar);
+			}
+		}
+		contactos.clear();
+	}
+
+	public ArrayList<Contacto> getIncorrectos() {
+		return incorrectos;
+	}
+
+	public void setIncorrectos(ArrayList<Contacto> incorrecto) {
+		this.incorrectos = incorrecto;
+	}
+
+	public ArrayList<Contacto> getCorrectos() {
+		return correctos;
+	}
+
+	public void setCorrectos(ArrayList<Contacto> correcto) {
+		this.correctos = correcto;
 	}
 
 	public ArrayList<Contacto> getContactos() {
