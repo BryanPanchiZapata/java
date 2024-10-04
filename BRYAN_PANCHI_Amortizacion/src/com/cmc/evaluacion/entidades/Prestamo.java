@@ -14,6 +14,10 @@ public class Prestamo {
 		this.plazo = plazo;
 	}
 
+	public void mostrarPrestamo() {
+		System.out.println("[ " + "monto= " + getMonto() + ", interes=" + getInteres() + ", plazo=" + getPlazo() + "]");
+	}
+
 	public double getMonto() {
 		return monto;
 	}
@@ -42,7 +46,7 @@ public class Prestamo {
 		return cuotas;
 	}
 
-	 public void setCuotas(ArrayList<Cuota> cuotas) {
-	        this.cuotas = cuotas;
-	    }
+	public void setCuotas(ArrayList<Cuota> cuotas) {
+		this.cuotas = cuotas;
+	}
 }

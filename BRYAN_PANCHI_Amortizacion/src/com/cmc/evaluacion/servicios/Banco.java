@@ -49,4 +49,28 @@ public class Banco {
 		clientes.add(cliente);
 		System.out.println("Cliente registrado con éxito: " + cliente.getNombre() + " " + cliente.getApellido());
 	}
+
+	public void asignarPrestamo(String cedulaCliente, Prestamo cedulaPrestamo) {
+		Clientes clienteEcontrado = buscarCliente(cedulaCliente);
+		if (clienteEcontrado == null) {
+			System.out.println("No es cliente del banco");
+		} else {
+			clienteEcontrado.agregarPrestamo(cedulaPrestamo);
+
+		}
+	}
+
+	public ArrayList<Prestamo> buscarPrestamos(String cedula) {
+		ArrayList<Prestamo> prestamos = null;
+		Clientes cl = buscarCliente(cedula);
+		if (cl != null) {
+			if (cl.getPrestamos().size() > 0 || cl.getPrestamos() != null) {
+				prestamos = cl.getPrestamos();
+			} else {
+				System.out.println("El cliente no tiene prestamos");
+			}
+		}
+		return prestamos;
+	}
+
 }

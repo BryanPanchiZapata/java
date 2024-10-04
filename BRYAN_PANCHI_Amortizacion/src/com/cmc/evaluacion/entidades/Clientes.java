@@ -1,14 +1,22 @@
 package com.cmc.evaluacion.entidades;
 
+import java.util.ArrayList;
+
 public class Clientes {
 	private String cedula;
 	private String nombre;
 	private String apellido;
+	private ArrayList<Prestamo> prestamos;
 
 	public Clientes(String cedula, String nombre, String apellido) {
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.cedula = cedula;
+		prestamos = new ArrayList<Prestamo>();
+	}
+
+	public void agregarPrestamo(Prestamo nuevoPrestamo) {
+		this.prestamos.add(nuevoPrestamo); 
 	}
 
 	public void mostrarCliente() {
@@ -38,6 +46,14 @@ public class Clientes {
 
 	public void setCedula(String cedula) {
 		this.cedula = cedula;
+	}
+
+	public ArrayList<Prestamo> getPrestamos() {
+		return prestamos;
+	}
+
+	public void setPrestamos(ArrayList<Prestamo> prestamos) {
+		this.prestamos = prestamos;
 	}
 
 }
