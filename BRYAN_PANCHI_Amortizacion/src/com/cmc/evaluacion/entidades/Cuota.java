@@ -1,22 +1,23 @@
 package com.cmc.evaluacion.entidades;
 
+import com.cmc.evaluacion.Utilitario;
+
 public class Cuota {
 	private int numero;
-	private double cuota;
-	private double capital;
-	private double inicio;
-	private double interes;
-	private double abonoCapital;
-	private double saldo;
-
-	// Método mostrarPrestamo
-	public void mostrarPrestamo() {
-		System.out.println(
-				numero + " | " + cuota + " | " + capital + " | " + interes + " | " + abonoCapital + " | " + saldo);
-	}
+	private double cuota, capital, inicio, interes, abonoCapital, saldo;
+	Utilitario utilitario = new Utilitario();
 
 	public Cuota(int numero) {
 		this.numero = numero;
+		this.saldo = 0;
+		this.inicio = 0;
+	}
+
+	// Método mostrarPrestamo
+	public void mostrarPrestamo() {
+		System.out.println(numero + " | " + utilitario.redondear(cuota) + " | " + utilitario.redondear(inicio) + " | "
+				+ utilitario.redondear(interes) + " | " + utilitario.redondear(abonoCapital) + " | "
+				+ utilitario.redondear(saldo));
 	}
 
 	public double getCuota() {
