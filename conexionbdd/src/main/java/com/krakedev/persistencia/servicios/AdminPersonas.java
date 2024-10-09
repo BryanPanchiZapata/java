@@ -2,12 +2,16 @@ package com.krakedev.persistencia.servicios;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Time;
+import java.util.ArrayList;
+import java.util.Date;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.krakedev.persistencia.entidades.EstadoCivil;
 import com.krakedev.persistencia.entidades.Persona;
 import com.krakedev.persistencia.utils.ConexionBDD;
 
@@ -110,5 +114,137 @@ public class AdminPersonas {
 				throw new Exception("Error con la base de datos");
 			}
 		}
+	}
+
+	// Consultas con ArrayList
+	public static ArrayList<Persona> buscarPorNombre(String nombreBusqueda) throws Exception {
+		ArrayList<Persona> personas = new ArrayList<>();
+		Connection connection = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		try {
+			connection = ConexionBDD.conectar();
+			ps = connection.prepareStatement("select * from personas where nombre like ?");
+			ps.setString(1, "%" + nombreBusqueda + "%");
+			rs = ps.executeQuery();
+
+			while (rs.next()) {
+				String nombre = rs.getString("nombre");
+				String cedula = rs.getString("cedula");
+				Persona p = new Persona();
+				p.setNombre(nombre);
+				p.setCedula(cedula);
+				personas.add(p);
+			}
+
+		} catch (Exception e) {
+			LOGGER.error("Error al consultar por nombre", e);
+			throw new Exception("Error al consultar por nombre");
+		} finally {
+			// cerrar la conexion
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				LOGGER.error("Error con la base de datos", e);
+				throw new Exception("Error con la base de datos");
+			}
+		}
+
+		return personas;
+	}
+
+	// -------------------------CONSULTAS DEL EJERCICIO
+	// ----------------------------------
+
+	// Buscar por clave primaria
+	public static Persona buscarPorClave(String cedula) throws Exception {
+		Connection connection = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		Persona persona = new Persona();
+		try {
+			connection = ConexionBDD.conectar();
+			ps = connection.prepareStatement("select * from personas where cedula = ?");
+			ps.setString(1, cedula);
+			rs = ps.executeQuery();
+
+			if (rs.next()) {
+				String nombre = rs.getString("nombre");
+				String apellido = rs.getString("apellido");
+				String codigo = rs.getString("estado_civil_codigo");
+				EstadoCivil ec = new EstadoCivil(codigo, "");
+				int estatura = rs.getInt("estatura");
+				Date fechal = rs.getDate("fecha_nacimiento");
+				int numeroHijos = rs.getInt("numero_hijos");
+				Date horaN = rs.getTime("hora_nacimiento");
+
+				Persona p = new Persona(cedula, nombre, apellido, ec, numeroHijos, estatura, fechal, horaN);
+				persona = p;
+			}
+
+		} catch (Exception e) {
+			LOGGER.error("Error al consultar por cedula", e);
+			throw new Exception("Error al consultar por cedula");
+		} finally {
+			// cerrar la conexion
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				LOGGER.error("Error con la base de datos", e);
+				throw new Exception("Error con la base de datos");
+			}
+		}
+
+		return persona;
+	}
+
+	// Consultas con ArrayList
+	public static ArrayList<Persona> buscarPorNombreR(String nombreBusqueda) throws Exception {
+		ArrayList<Persona> personas = new ArrayList<>();
+		Connection connection = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		try {
+			connection = ConexionBDD.conectar();
+			ps = connection.prepareStatement("select * from personas where nombre like ?");
+			ps.setString(1, "%" + nombreBusqueda + "%");
+			rs = ps.executeQuery();
+
+			while (rs.next()) {
+				String cedula = rs.getString("cedula");
+				String nombre = rs.getString("nombre");
+				String apellido = rs.getString("apellido");
+				int estatura = rs.getInt("estatura");
+				Date fechaN = rs.getDate("fecha_nacimiento");
+				Date horaN = rs.getTime("hora_nacimiento");
+				int numeroHijos = rs.getInt("numero_hijos");
+				String codigo = rs.getString("estado_civil_codigo");
+				EstadoCivil ec = new EstadoCivil(codigo, "");
+				Persona p = new Persona();
+				p.setCedula(cedula);
+				p.setNombre(nombre);
+				p.setApellido(apellido);
+				p.setEstatura(estatura);
+				p.setFechaNacimiento(fechaN);
+				p.setHoraNacimiento(horaN);
+				p.setNumeroHijos(numeroHijos);
+				p.setEstadoCivil(ec);
+				personas.add(p);
+			}
+
+		} catch (Exception e) {
+			LOGGER.error("Error al consultar por nombre", e);
+			throw new Exception("Error al consultar por nombre");
+		} finally {
+			// cerrar la conexion
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				LOGGER.error("Error con la base de datos", e);
+				throw new Exception("Error con la base de datos");
+			}
+		}
+
+		return personas;
 	}
 }

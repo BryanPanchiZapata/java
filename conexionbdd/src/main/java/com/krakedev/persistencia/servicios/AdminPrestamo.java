@@ -8,7 +8,6 @@ import java.sql.Time;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.krakedev.persistencia.entidades.Persona;
 import com.krakedev.persistencia.entidades.Prestamo;
 import com.krakedev.persistencia.utils.ConexionBDD;
 

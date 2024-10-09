@@ -23,6 +23,19 @@ public class Persona {
 	}
 
 	public Persona(String cedula, String nombre, String apellido, EstadoCivil estadoCivil, int numeroHijos,
+			double estatura, Date fechaNacimiento, Date horaNacimiento) {
+		super();
+		this.cedula = cedula;
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.estadoCivil = estadoCivil;
+		this.numeroHijos = numeroHijos;
+		this.estatura = estatura;
+		this.fechaNacimiento = fechaNacimiento;
+		this.horaNacimiento = horaNacimiento;
+	}
+
+	public Persona(String cedula, String nombre, String apellido, EstadoCivil estadoCivil, int numeroHijos,
 			double estatura, BigDecimal cantidadAhorrada, Date fechaNacimiento, Date horaNacimiento) {
 		super();
 		this.cedula = cedula;
