@@ -7,7 +7,7 @@ public class TestConsultaCedula {
 
 	public static void main(String[] args) {
 		try {
-			Persona cedula = AdminPersonas.buscarPorClave("1726789816");
+			Persona cedula = AdminPersonas.buscarPorClave("1726010876");
 			System.out.println(cedula);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());

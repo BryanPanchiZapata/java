@@ -1,0 +1,6 @@
+20:48:36.303 [main] INFO  com.krakedev.ejercicios.Admin - Ingresa a agregar
+06-10-2024 20:49:31.258 [main] INFO  com.krakedev.ejercicios.Admin - Ingresa a agregar
+06-10-2024 20:57:04.267 [main] INFO  com.krakedev.ejercicios.Admin - Mensaje de info
+06-10-2024 20:57:04.269 [main] WARN  com.krakedev.ejercicios.Admin - Mensaje de warn
+06-10-2024 20:57:04.269 [main] INFO  com.krakedev.ejercicios.Admin - Mensaje de info
+06-10-2024 20:57:04.269 [main] ERROR com.krakedev.ejercicios.Admin - Mensaje de error

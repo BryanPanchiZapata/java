@@ -1,0 +1,10 @@
+12:18:19.026 [main] WARN  com.krakedev.probarLog.Admin - Mensaje de warn
+12:18:19.031 [main] INFO  com.krakedev.probarLog.Admin - Mensaje de info
+12:18:19.031 [main] DEBUG com.krakedev.probarLog.Admin - Mensaje de debug
+12:18:19.031 [main] TRACE com.krakedev.probarLog.Admin - Mensaje de trace
+12:18:19.031 [main] ERROR com.krakedev.probarLog.Admin - Mensaje de error
+13:30:01.164 [main] WARN  com.krakedev.probarLog.Admin - Mensaje de warn
+13:30:01.169 [main] INFO  com.krakedev.probarLog.Admin - Mensaje de info
+13:30:01.169 [main] DEBUG com.krakedev.probarLog.Admin - Mensaje de debug
+13:30:01.169 [main] TRACE com.krakedev.probarLog.Admin - Mensaje de trace
+13:30:01.169 [main] ERROR com.krakedev.probarLog.Admin - Mensaje de error

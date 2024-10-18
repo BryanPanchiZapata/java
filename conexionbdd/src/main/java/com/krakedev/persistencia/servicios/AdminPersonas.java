@@ -1,5 +1,6 @@
 package com.krakedev.persistencia.servicios;
 
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -49,7 +50,7 @@ public class AdminPersonas {
 				connection.close();
 			} catch (SQLException e) {
 				LOGGER.error("Error con la base de datos", e);
-				throw new Exception("Error con la base de datos");
+				throw new Exception("Error con la base de datos. Detalle: " + e.getMessage());
 			}
 		}
 
@@ -161,7 +162,7 @@ public class AdminPersonas {
 		Connection connection = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-		Persona persona = new Persona();
+		Persona persona = null;
 		try {
 			connection = ConexionBDD.conectar();
 			ps = connection.prepareStatement("select * from personas where cedula = ?");
@@ -169,6 +170,7 @@ public class AdminPersonas {
 			rs = ps.executeQuery();
 
 			if (rs.next()) {
+				String cedulaP = rs.getString("cedula");
 				String nombre = rs.getString("nombre");
 				String apellido = rs.getString("apellido");
 				String codigo = rs.getString("estado_civil_codigo");
@@ -178,8 +180,8 @@ public class AdminPersonas {
 				int numeroHijos = rs.getInt("numero_hijos");
 				Date horaN = rs.getTime("hora_nacimiento");
 
-				Persona p = new Persona(cedula, nombre, apellido, ec, numeroHijos, estatura, fechal, horaN);
-				persona = p;
+				persona = new Persona(cedulaP, nombre, apellido, ec, numeroHijos, estatura, fechal, horaN);
+				
 			}
 
 		} catch (Exception e) {
@@ -218,6 +220,7 @@ public class AdminPersonas {
 				Date fechaN = rs.getDate("fecha_nacimiento");
 				Date horaN = rs.getTime("hora_nacimiento");
 				int numeroHijos = rs.getInt("numero_hijos");
+				BigDecimal money = rs.getBigDecimal("canyidad_ahorrada");
 				String codigo = rs.getString("estado_civil_codigo");
 				EstadoCivil ec = new EstadoCivil(codigo, "");
 				Persona p = new Persona();
@@ -227,6 +230,7 @@ public class AdminPersonas {
 				p.setEstatura(estatura);
 				p.setFechaNacimiento(fechaN);
 				p.setHoraNacimiento(horaN);
+				p.setCantidadAhorrada(money);
 				p.setNumeroHijos(numeroHijos);
 				p.setEstadoCivil(ec);
 				personas.add(p);

@@ -4,21 +4,7 @@ public class Pokemon {
 	private String nombre;
 	private String tipo;
 	private double poder;
-
-	// Constructor
-	public Pokemon(String nombre, String tipo, double poder) {
-		this.nombre = nombre;
-		this.tipo = tipo;
-		this.poder = poder;
-	}
-
-	public Pokemon() {
-
-	}
-
-	public Pokemon(String nombre) {
-		this.nombre = nombre;
-	}
+	private Movimiento movimiento;
 
 	// Getters and Setters
 	public String getNombre() {
@@ -43,6 +29,14 @@ public class Pokemon {
 
 	public void setPoder(double poder) {
 		this.poder = poder;
+	}
+
+	public Movimiento getMovimiento() {
+		return movimiento;
+	}
+
+	public void setMovimiento(Movimiento movimiento) {
+		this.movimiento = movimiento;
 	}
 
 }
