@@ -12,7 +12,7 @@ public class TestAdminPersona {
 
 	public static void main(String[] args) {
 		EstadoCivil ec = new EstadoCivil("U", "Union Libre");
-		Persona p = new Persona("176543210", "Julio", "Jaramillo", ec);
+		Persona p = new Persona("176543211", "Julio", "Jaramillo", ec);
 		try {
 			Date fechaNac = Convertidor.convertirFecha("2002/05/13");
 			Date hora = Convertidor.convertirHora("13:30:98");
