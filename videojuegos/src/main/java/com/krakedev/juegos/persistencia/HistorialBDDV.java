@@ -70,7 +70,7 @@ public class HistorialBDDV {
 			throw e;
 		} catch (SQLException e) {
 			e.printStackTrace();
-			throw new KrakeException("Error al actulizar" + e);
+			throw new KrakeException("Error al actualizar" + e);
 		} finally {
 			try {
 				con.close();
