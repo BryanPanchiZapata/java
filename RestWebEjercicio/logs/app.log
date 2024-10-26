@@ -1,0 +1,5 @@
+21-10-2024 16:13:34.356 [main] WARN  com.krakedev.restWebEjemplo.logger.Admin - Mensaje de warn
+21-10-2024 16:13:34.362 [main] INFO  com.krakedev.restWebEjemplo.logger.Admin - Mensaje de info
+21-10-2024 16:13:34.362 [main] DEBUG com.krakedev.restWebEjemplo.logger.Admin - Mensaje de debug
+21-10-2024 16:13:34.362 [main] TRACE com.krakedev.restWebEjemplo.logger.Admin - Mensaje de trace
+21-10-2024 16:13:34.362 [main] ERROR com.krakedev.restWebEjemplo.logger.Admin - Mensaje de error
